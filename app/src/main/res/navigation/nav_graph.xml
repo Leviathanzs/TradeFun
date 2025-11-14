@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cryptoListFragment">
+
+    <fragment
+        android:id="@+id/liveChartFragment"
+        android:name="kiokyky.app.tradefun.ui.LiveChartFragment"
+        android:label="Live Chart">
+        <argument
+            android:name="coinId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cryptoListFragment"
+        android:name="kiokyky.app.tradefun.ui.CryptoListFragment"
+        android:label="Crypto List">
+
+        <action
+            android:id="@+id/action_cryptoListFragment_to_liveChartFragment"
+            app:destination="@id/liveChartFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Profile & Leaderboard tetap -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="kiokyky.app.tradefun.ui.ProfileFragment"
+        android:label="Profile" />
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="kiokyky.app.tradefun.ui.LeaderboardFragment"
+        android:label="Leaderboard" />
+
+</navigation>

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,6 +11,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TradeFun" />
+        android:theme="@style/Theme.TradeFun">
+
+        <!-- Activity utama -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TradeFun">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tambahan untuk fragment-testing -->
+        <activity
+            android:name="androidx.fragment.app.testing.EmptyFragmentActivity"
+            android:theme="@style/Theme.TradeFun"
+            tools:node="merge" />
+
+    </application>
 
 </manifest>

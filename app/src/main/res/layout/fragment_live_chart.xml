@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="16dp">
+
+    <!-- Guideline untuk membagi layar 50:50 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- Nama Coin -->
+    <TextView
+        android:id="@+id/coinName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Bitcoin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.github.mikephil.charting.charts.CandleStickChart
+        android:id="@+id/candleChart"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@id/coinName"
+        app:layout_constraintBottom_toTopOf="@id/tabSwitcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Tab Switcher -->
+    <RadioGroup
+        android:id="@+id/tabSwitcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/candleChart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/tabHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:checked="true"
+            android:textSize="14sp"
+            android:textColor="@color/textSecondary"
+            android:buttonTint="@color/primary"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <RadioButton
+            android:id="@+id/tabLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live"
+            android:textSize="14sp"
+            android:textColor="@color/textSecondary"
+            android:buttonTint="@color/primary"
+            android:layout_marginStart="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </RadioGroup>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tabSwitcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Konten Dinamis -->
+    <FrameLayout
+        android:id="@+id/transactionContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/container_background"
+        app:layout_constraintTop_toBottomOf="@id/tabSwitcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
